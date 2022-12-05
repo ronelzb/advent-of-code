@@ -1,17 +1,22 @@
 # https://adventofcode.com/2022/day/5
+from typing import List
+
 from utils.files import get_input
+from utils.strings import parse_text_as_list
 from utils.tests import tests
 
 TEST_1 = [
-    ("""    [D]    
-[N] [C]    
-[Z] [M] [P]
- 1   2   3 
-    
-move 1 from 2 to 1
-move 3 from 1 to 3
-move 2 from 2 to 1
-move 1 from 1 to 2""",
+    ("""
+        [D]    
+    [N] [C]    
+    [Z] [M] [P]
+     1   2   3 
+        
+    move 1 from 2 to 1
+    move 3 from 1 to 3
+    move 2 from 2 to 1
+    move 1 from 1 to 2
+    """,
      "CMZ"),
 ]
 
@@ -20,10 +25,8 @@ move 1 from 1 to 2""",
 # Space complexity: O(m*n); m=len(stacks), n=each stack
 @get_input
 @tests(TEST_1)
-def part_1(raw: str) -> str:
-    # rstrip: for input end
-    raw = raw.rstrip()
-    lines = raw.split("\n")
+@parse_text_as_list
+def part_1(lines: List[str]) -> str:
     row = 0
     stacks_len = (len(lines[0]) + 1) // 4
     stacks = [[] * 0 for _ in range(stacks_len)]
@@ -51,15 +54,17 @@ def part_1(raw: str) -> str:
 
 
 TEST_2 = [
-    ("""    [D]    
-[N] [C]    
-[Z] [M] [P]
- 1   2   3 
-
-move 1 from 2 to 1
-move 3 from 1 to 3
-move 2 from 2 to 1
-move 1 from 1 to 2""",
+    ("""
+        [D]    
+    [N] [C]    
+    [Z] [M] [P]
+     1   2   3 
+    
+    move 1 from 2 to 1
+    move 3 from 1 to 3
+    move 2 from 2 to 1
+    move 1 from 1 to 2
+    """,
      "MCD"),
 ]
 
@@ -68,10 +73,8 @@ move 1 from 1 to 2""",
 # Space complexity: O(m*n)
 @get_input
 @tests(TEST_2)
-def part_2(raw: str) -> str:
-    # rstrip: for input end
-    raw = raw.rstrip()
-    lines = raw.split("\n")
+@parse_text_as_list
+def part_2(lines: List[str]) -> str:
     row = 0
     stacks_len = (len(lines[0]) + 1) // 4
     stacks = [[] * 0 for _ in range(stacks_len)]
