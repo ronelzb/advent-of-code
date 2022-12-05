@@ -15,7 +15,7 @@ T = TypeVar("T")
 F = Callable[P, T]
 
 
-def tests(cases: Iterable[tuple[str, int]]) -> F:
+def tests(cases: Iterable[tuple[str, str | int]]) -> F:
     def decorator(fn: F) -> F:
         @functools.wraps(fn)
         def fn_override(*args: P.args, **kwargs: P.kwargs):
