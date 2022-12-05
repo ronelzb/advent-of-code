@@ -25,5 +25,5 @@ def _get_input() -> str:
     :return: File raw content
     """
     with open("input") as reader:
-        content = reader.read().strip()
+        content = reader.read()
     return content
