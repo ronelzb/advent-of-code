@@ -1,4 +1,4 @@
-# https://adventofcode.com/2022/day/9
+# https://adventofcode.com/2022/day/10
 from typing import List
 
 from utils.files import get_input
