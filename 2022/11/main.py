@@ -1,5 +1,4 @@
 # https://adventofcode.com/2022/day/11
-import heapq
 from functools import reduce
 from typing import List
 
